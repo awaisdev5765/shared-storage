@@ -1,15 +1,28 @@
 import 'package:flutter/services.dart';
 
-const String kRootChannel = 'io.alexrintt.plugins/sharedstorage';
+const kRootChannel = 'io.alexrintt.plugins/sharedstorage';
 
-const MethodChannel kDocumentFileChannel =
-    MethodChannel('$kRootChannel/documentfile');
+/// `MethodChannels` of this plugin. Flutter use this to communicate with native Android
 
-const MethodChannel kDocumentsContractChannel =
+/// Target [Environment] Android API (Legacy and you should avoid it)
+const kEnvironmentChannel = MethodChannel('$kRootChannel/environment');
+
+/// Target [MediaStore] Android API
+const kMediaStoreChannel = MethodChannel('$kRootChannel/mediastore');
+
+/// Target [DocumentFile] from `SAF` Android API (New Android APIs use it)
+const kDocumentFileChannel = MethodChannel('$kRootChannel/documentfile');
+
+/// Target [DocumentsContract] from `SAF` Android API (New Android APIs use it)
+const kDocumentsContractChannel =
     MethodChannel('$kRootChannel/documentscontract');
 
-const MethodChannel kDocumentFileHelperChannel =
+/// Target [DocumentFileHelper] Shared Storage plugin class (SAF Based)
+const kDocumentFileHelperChannel =
     MethodChannel('$kRootChannel/documentfilehelper');
 
-const EventChannel kDocumentFileEventChannel =
+/// `EventChannels` of this plugin. Flutter use this to communicate with native Android
+
+/// Target [DocumentFile] from `SAF` Android API (New Android APIs use it)
+const kDocumentFileEventChannel =
     EventChannel('$kRootChannel/event/documentfile');

@@ -25,10 +25,18 @@ extension FunctionalExtender<T> on T? {
   T? takeIf(bool Function(T) f) {
     final T? self = this;
 
-    return self != null && f(self) ? self : null;
+    if (self == null) {
+      return null;
+    }
+
+    if (f(self)) {
+      return self;
+    }
+
+    return null;
   }
 }
 
-const Deprecated willbemovedsoon = Deprecated(
+const willbemovedsoon = Deprecated(
   'This method will be moved to another package in a next release.\nBe aware this method will not be removed but moved to another module outside of [saf].',
 );

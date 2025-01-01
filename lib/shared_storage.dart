@@ -1,3 +1,3 @@
 library shared_storage;
 
-export './saf.dart';
+export 'src/barrel.dart';
